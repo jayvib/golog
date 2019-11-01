@@ -52,6 +52,7 @@ const (
 )
 
 var _ Logger = (*stdLogger)(nil)
+var _ Logger = (*Logrus)(nil)
 
 // Logger represents a general logger interface.
 type Logger interface {
