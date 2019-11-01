@@ -31,7 +31,6 @@ var (
 	// DisabledLogger is a standard logger use to disable all logs.
 	DisabledLogger = &stdLogger{level: DisabledLevel, l: log.New(ioutil.Discard, DisabledLevel.String(), log.LstdFlags|log.Lshortfile)}
 )
-var _ Logger = (*stdLogger)(nil)
 
 // Level represents the log level of severity
 // of the package.
@@ -51,6 +50,8 @@ const (
 	ErrorLevel                 // ErrorLevel use level for error state. Higher than info because API needs the error message
 	DisabledLevel              // DisabledLevel use level for disabled state
 )
+
+var _ Logger = (*stdLogger)(nil)
 
 // Logger represents a general logger interface.
 type Logger interface {
